@@ -46,6 +46,75 @@ You can start editing the page by modifying `app/page.tsx`. The page auto-update
 
 This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
 
+
+## Project Structure
+
+## Repository Contents
+
+## Project Structure
+```
+donato-consulting/
+├── src/
+│   ├── app/                    # Next.js 14 App Router pages
+│   │   ├── layout.tsx          # Root layout with global styles
+│   │   ├── page.tsx            # Homepage with bio, services, and contact
+│   │   ├── globals.css         # Global styles and Tailwind imports
+│   │   ├── writings/           # Blog/writings section
+│   │   │   ├── page.tsx        # Writings listing page
+│   │   │   └── [slug]/         # Dynamic writing pages
+│   │   │       └── page.tsx    # Individual writing template
+│   │   └── projects/           # Project showcase section
+│   │       ├── page.tsx        # Projects listing page
+│   │       └── [slug]/         # Dynamic project pages
+│   │           └── page.tsx    # Individual project template
+│   │
+│   ├── components/             # Reusable React components
+│   │   └── mdx-content.tsx     # MDX rendering component
+│   │
+│   └── lib/                    # Utility functions and data
+│       ├── mdx.ts              # MDX processing for writings
+│       ├── mdx-projects.ts     # MDX processing for projects
+│       ├── projects.ts         # Project data and utilities
+│       ├── github.ts           # GitHub API integration
+│       └── utils.ts            # Utility functions (from shadcn/ui)
+│
+├── content/                    # Markdown/MDX content
+│   ├── writings/               # Blog posts and articles
+│   │   └── *.mdx              # Individual writing files
+│   └── projects/               # Project documentation
+│       └── *.mdx              # Detailed project writeups
+│
+├── public/                     # Static assets
+│   └── [images, fonts, etc.]
+│
+├── next.config.js              # Next.js configuration
+├── tailwind.config.ts          # Tailwind CSS configuration
+├── tsconfig.json               # TypeScript configuration
+├── package.json                # Dependencies and scripts
+├── components.json             # shadcn/ui configuration
+├── .env.local                  # Environment variables (git ignored)
+└── .env.example                # Example environment variables
+```
+
+### Key Files
+
+- **`src/app/page.tsx`** - Homepage featuring professional bio, consulting services, and contact information
+- **`src/lib/projects.ts`** - Defines project data structure and project listing
+- **`src/lib/mdx.ts`** - Handles MDX file processing for the writings section
+- **`content/`** - All content is written in MDX format, supporting rich markdown with React components
+
+### Adding Content
+
+- **New Writing**: Create an `.mdx` file in `content/writings/`
+- **New Project**: Add entry to `projects` array in `src/lib/projects.ts` and optionally create detailed MDX in `content/projects/`
+
+
+
+
+
+
+
+
 ## Learn More
 
 To learn more about Next.js, take a look at the following resources:

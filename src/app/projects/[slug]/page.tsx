@@ -54,10 +54,6 @@ export default async function ProjectPage({ params }: PageProps) {
           
           {/* Project meta */}
           <div className="flex flex-wrap gap-4 text-sm text-gray-600 mb-6">
-            <time>{new Date(project.date).toLocaleDateString('en-US', { 
-              year: 'numeric', 
-              month: 'long' 
-            })}</time>
             {project.github && (
               <a 
                 href={project.github}

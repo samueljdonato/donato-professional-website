@@ -6,7 +6,7 @@ export default function Home() {
           Sam Donato
         </h1>
         <p className="text-xl text-gray-600 mb-8">
-          Bioinformatics & Mycology Consulting
+          Bioinformatics Scientist, Data Scientist, and Mycologist
         </p>
         
 <div className="prose prose-lg">
@@ -58,7 +58,7 @@ export default function Home() {
         {/* CONSULTING SERVICES SECTION */}
         <section className="mt-16">
           <h2 className="text-2xl font-semibold text-gray-900 mb-8">
-            Consulting Services
+            Donato Consulting Services
           </h2>
           <div className="grid gap-8 md:grid-cols-2">
             <div>
@@ -164,7 +164,7 @@ export default function Home() {
 
         <div className="mt-16 pt-16 border-t border-gray-200">
           <h2 className="text-2xl font-semibold text-gray-900 mb-6">
-            Get in Touch
+            Contact
           </h2>
           <div className="flex flex-col sm:flex-row gap-6">
             <a 

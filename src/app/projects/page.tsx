@@ -2,9 +2,7 @@ import Link from 'next/link'
 import { projects } from '@/lib/projects'
 
 export default function ProjectsPage() {
-  const sortedProjects = [...projects].sort((a, b) => 
-    new Date(b.date).getTime() - new Date(a.date).getTime()
-  )
+  const sortedProjects = projects
 
   return (
     <main className="min-h-screen px-4 py-16 sm:px-6 lg:px-8">
@@ -12,7 +10,7 @@ export default function ProjectsPage() {
         <h1 className="text-4xl font-bold text-gray-900 mb-4">
           Projects
         </h1>
-        
+
         <p className="text-lg text-gray-600 mb-12">
           A collection of my work in bioinformatics, data science, and mycology.
         </p>
@@ -32,14 +30,14 @@ export default function ProjectsPage() {
                       </span>
                     )}
                   </div>
-                  
+
                   <p className="text-gray-600 mb-4">
                     {project.summary}
                   </p>
-                  
+
                   <div className="flex flex-wrap items-center gap-4 text-sm">
                     <div className="flex gap-2">
-                      {project.tags.slice(0, 3).map(tag => (
+                      {project.tags.slice(0, 3).map((tag) => (
                         <span key={tag} className="bg-gray-100 px-2 py-1 rounded">
                           {tag}
                         </span>
@@ -50,14 +48,7 @@ export default function ProjectsPage() {
                         </span>
                       )}
                     </div>
-                    
-                    <span className="text-gray-500">
-                      {new Date(project.date).toLocaleDateString('en-US', { 
-                        year: 'numeric', 
-                        month: 'short' 
-                      })}
-                    </span>
-                    
+
                     <span className="text-blue-600 group-hover:underline ml-auto">
                       View Details →
                     </span>
@@ -69,9 +60,9 @@ export default function ProjectsPage() {
         </div>
 
         <div className="mt-12 pt-12 border-t border-gray-200">
-          <a 
-            href="https://github.com/samueljdonato" 
-            target="_blank" 
+          <a
+            href="https://github.com/samueljdonato"
+            target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-2 text-blue-600 hover:underline"
           >
@@ -82,7 +73,7 @@ export default function ProjectsPage() {
             </svg>
           </a>
         </div>
-        
+
         <Link href="/" className="mt-8 inline-block text-blue-600 hover:underline">
           ← Back home
         </Link>
