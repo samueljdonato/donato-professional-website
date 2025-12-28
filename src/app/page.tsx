@@ -9,18 +9,30 @@ export default function Home() {
           Bioinformatics & Mycology Consulting
         </p>
         
-        <div className="prose prose-lg">
-          <p>
-            Bioinformatic scientist and systems architect who builds data-driven frameworks transforming biological complexity into
-            actionable insight and operational excellence. Built and designed a strain resource and informatics platform supporting over
-            700 fungal strain lines. This program became the backbone of all research and commercial-scale production at Ecovative.
-            Engineered machine-learning and automation pipelines distilling hundreds of bioreactor parameters into a focused set of
-            20-30 key features, accelerating decision making, data analysis, and experimental precision across teams. Recognized for a
-            rare blend of technical fluency, computational design, effective communication and a drive for elevating team performance.
-            Passionate about contributing to a culture of quality science, progress and learning.
-            Currently available for consulting opportunities.
-          </p>
-        </div>
+<div className="prose prose-lg">
+  <ul className="list-disc pl-6 space-y-4">
+    <li>
+      Bioinformatic scientist experienced building data-driven programs and systems to transform biological complexity into targeted outputs.
+    </li>
+    <li>
+      I Built and designed a strain resource and informatics platform supporting over 700 fungal strain lines. This program became the backbone of all research and commercial-scale production at Ecovative.
+      I developed the software architecture, data models, autiomation pipelines, and labratory cell culturing protocols enabling a functional strain maintenace program to ensure biological viability and perfomance of key strains. 
+    </li>
+    <li>
+      Throughout my experience in biotech I worked on a variety of machine-learning and automation pipelines distilling hundreds of parameters into a focused set of key features, accelerating decision making, data analysis, and experimental precision across teams. I have 
+      experience working on projects focused on biological optimization of growth systems and target phenotypes, along with meta data analyses and visualization pipelines to optimize decision making and workflows.
+    </li>
+    <li>
+      I have a strong foundation in computational biology, data science, program design and biotechnology, with proficiency in Python, R, SQL, and various bioinformatics tools and libraries. I am skilled in statistical analysis, machine learning, genomic analysis and data visualization techniques. 
+    </li>
+    <li>
+      I provide a blend of technical fluency, computational design, effective communication and a drive for elevating team performance. I am passionate about contributing to a culture of quality science, progress and learning.
+    </li>
+    <li>
+      I am currently open to consulting opportunities in bioinformatics, mycology, data science, and research informatics and development.
+    </li>
+  </ul>
+</div>
         
         <nav className="mt-12 flex gap-6">
           <a href="/writings" className="text-blue-600 hover:underline">
