@@ -22,9 +22,11 @@ export default function WritingsPage() {
                     {writing.title}
                   </h2>
                 </Link>
-                <p className="text-gray-600 mb-2">
-                  {new Date(writing.date).toLocaleDateString()}
-                </p>
+                {writing.date && !isNaN(new Date(writing.date).getTime()) && (
+                  <p className="text-gray-600 mb-2">
+                    {new Date(writing.date).toLocaleDateString()}
+                  </p>
+                )}
                 <p className="text-gray-700">{writing.summary}</p>
                 <div className="mt-2 flex gap-2">
                   {writing.tags.map(tag => (
