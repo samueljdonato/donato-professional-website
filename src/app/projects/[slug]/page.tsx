@@ -9,7 +9,7 @@ interface PageProps {
 }
 
 export async function generateStaticParams() {
-  return projects.map((project) => ({
+  return projects.filter(p => !p.draft).map((project) => ({
     slug: project.slug,
   }))
 }
@@ -26,7 +26,7 @@ export default async function ProjectPage({ params }: PageProps) {
   const content = await getProjectContent(slug)
 
   return (
-    <main className="min-h-screen px-4 py-16 sm:px-6 lg:px-8">
+    <main className="min-h-screen px-1 py-4 sm:px-2 lg:px-3">
       <article className="max-w-4xl mx-auto">
         {/* Header */}
         <header className="mb-8">

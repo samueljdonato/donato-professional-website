@@ -2,10 +2,10 @@ import Link from 'next/link'
 import { projects } from '@/lib/projects'
 
 export default function ProjectsPage() {
-  const sortedProjects = projects
+  const sortedProjects = projects.filter(p => !p.draft)
 
   return (
-    <main className="min-h-screen px-4 py-16 sm:px-6 lg:px-8">
+    <main className="min-h-screen px-1 py-4 sm:px-2 lg:px-3">
       <div className="max-w-4xl mx-auto">
         <h1 className="text-4xl font-bold text-gray-900 mb-4">
           Projects
@@ -19,7 +19,7 @@ export default function ProjectsPage() {
           {sortedProjects.map((project) => (
             <article key={project.slug} className="group">
               <Link href={`/projects/${project.slug}`}>
-                <div className="p-6 rounded-lg border border-gray-200 hover:border-blue-500 transition-colors">
+                <div className="p-6 rounded-lg border border-black hover:border-blue-500 transition-colors">
                   <div className="flex items-start justify-between mb-2">
                     <h2 className="text-xl font-semibold text-gray-900 group-hover:text-blue-600 transition-colors">
                       {project.title}

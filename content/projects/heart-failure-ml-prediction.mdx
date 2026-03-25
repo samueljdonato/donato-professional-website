@@ -1,0 +1,53 @@
+---
+title: "AI-Based Heart Failure Risk Prediction"
+---
+
+**Overview**
+
+- Graduate capstone project for an M.S. in Bioinformatics
+- Developed and benchmarked machine learning models for heart failure risk prediction
+- Integrated three data types from the UK Biobank: polygenic risk scores (PRS), clinical/phenotypic variables, and proteomic expression data
+- Central question: does adding phenotypic and proteomic layers significantly improve prediction accuracy beyond genetic risk scores alone?
+
+**Data Sources**
+
+- UK Biobank genotype data (502,151 individuals) — processed with PLINK and PRSice-2
+- Phenotypic covariates extracted via Hail, selected by correlation with heart failure incidence
+- Proteomic data: ~2,924 proteins measured across 53,018 participants; 5 literature-validated proteins selected (HAVCR1, IGFBP7, LTBP2, NTproBNP, TNXB)
+- Final dataset: 45,920 individuals after filtering (45,692 controls, 228 cases)
+
+**Models & Methods**
+
+- Five algorithms trained across two parallel pipelines — one with PRS + phenotypes, one adding proteomic data
+- Ridge Regression, Logistic Regression, Random Forest, XGBoost, Neural Network (Keras/TensorFlow)
+- Class imbalance handled with SMOTE and focal loss
+- Common optimizations: cross-validation, threshold tuning, StandardScaler normalization
+
+**Key Results**
+
+- All five models showed improved performance when proteomic data was included
+- F1 score used as primary metric given severe class imbalance (228 cases vs. 45,692 controls)
+
+| Model | Test AUC | F1 Score |
+|---|---|---|
+| Ridge Regression | 0.949 | 0.397 |
+| Neural Network | 0.960 | 0.126 |
+| Logistic Regression | 0.950 | 0.180 |
+| XGBoost | 0.916 | 0.258 |
+| Random Forest | 0.905 | 0.174 |
+
+- Ridge Regression achieved the best precision-recall balance (F1 = 0.397)
+- XGBoost achieved the highest cross-validation AUC (1.000)
+- Both showed well-generalized learning curves without overfitting
+
+**Conclusions**
+
+- Proteomic integration consistently improved prediction across all model families — suggesting genuine biological signal rather than algorithmic artifact
+- Multi-omics approaches significantly outperform genetic-only (PRS) models for complex disease prediction
+- Ridge Regression is the most practical model for clinical deployment given its F1 score and generalization
+- Class imbalance at this scale remains a core challenge for rare disease prediction pipelines
+
+**Tools & Technologies**
+
+- Python, R, scikit-learn, XGBoost, Keras/TensorFlow
+- Hail, PLINK, PRSice-2, Google Cloud Storage

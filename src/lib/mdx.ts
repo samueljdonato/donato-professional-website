@@ -7,6 +7,7 @@ const contentDirectory = path.join(process.cwd(), 'content/writings')
 export interface Writing {
   slug: string
   title: string
+  author?: string
   date: string
   summary: string
   tags: string[]
@@ -26,6 +27,7 @@ export function getAllWritings(): Writing[] {
       return {
         slug,
         title: data.title,
+        author: data.author,
         date: data.date,
         summary: data.summary,
         tags: data.tags || [],
@@ -47,6 +49,7 @@ export function getWritingBySlug(slug: string): Writing | null {
     return {
       slug,
       title: data.title,
+      author: data.author,
       date: data.date,
       summary: data.summary,
       tags: data.tags || [],

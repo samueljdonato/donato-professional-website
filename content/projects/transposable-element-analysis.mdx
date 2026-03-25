@@ -1,0 +1,29 @@
+---
+title: "Transposable Element Analysis in Pleurotus ostreatus"
+---
+
+**Overview**
+
+- End-to-end bioinformatics pipeline for discovery and characterization of transposable elements (TEs) in *Pleurotus ostreatus* (oyster mushroom)
+- Integrates sequence alignment, RNA-seq mapping, ORF prediction, differential expression, and functional annotation
+- Goal: characterize TE structure, expression patterns, and putative function across biological conditions
+
+**Pipeline Components**
+
+- **Sequence alignment** — Filtered TE sequences by length (±20% of median), applied MAFFT multiple sequence alignment, and generated consensus sequences for Gypsy and Copia TE subfamilies
+- **Scaffold analysis** — Focused analysis of Scaffold 81, a primary TE-containing genomic region; identified open reading frames, start codons, and reading frames across the sequence
+- **RNA-seq integration** — Mapped reads from three conditions (Healthy, HC, Alpha/Beta variants) to TE sequences using SAMtools; extracted high-coverage regions of interest (ROIs) with depth threshold of 10
+- **Differential expression** — DESeq2-based statistical comparison of TE expression across conditions; output includes p-values and fold changes per ROI
+- **Functional annotation** — BLAST-based remote annotation of predicted protein sequences against NCBI
+
+**Key Findings**
+
+- Multiple ORFs identified on Scaffold 81 ranging from ~5,600–7,900 bp; protein translations of 1,800–2,600+ amino acids
+- Condition-dependent expression differences detected across Healthy, HC, and variant conditions
+- High-expression ROIs identified (e.g. ROI_18597: 1,690 reads; ROI_20640: 1,580 reads)
+- Consensus sequences generated for Gypsy_1 subfamily with pairwise identity comparisons across variants
+
+**Tools & Technologies**
+
+- Python, R, BioPython, MAFFT
+- SAMtools, DESeq2, BLAST/NCBI, ORFfinder

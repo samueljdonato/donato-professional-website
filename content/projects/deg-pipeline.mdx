@@ -1,0 +1,42 @@
+---
+title: "Differential Gene Expression Pipeline"
+---
+
+**Overview**
+
+- Reproducible RNA-seq pipeline for identifying differentially expressed genomic regions between healthy control (HC) and wild-type (WT) fungal samples
+- Covers the full workflow: raw BAM processing, coverage-based region discovery, read quantification, and DESeq2 statistical analysis
+- Automated scripts at each stage with full visualization outputs
+
+**Pipeline Stages**
+
+- **BAM processing** — Automated shell scripts for position-sorting, indexing, and name-sorting of 9 sample BAM files (4 HC, 5 WT) using samtools
+- **Coverage analysis** — Per-sample coverage maps generated with bedtools; merged across all samples to identify high-expression regions of interest (ROIs, ≥5x depth, ≥10 bp)
+- **GTF annotation** — Python scripts to clean and standardize GFF/GTF annotations from Geneious for compatibility with featureCounts; handles both automated and manually curated ROI definitions
+- **Read counting** — featureCounts (Rsubread) in paired-end mode to generate count matrices across ~120 ROIs per sample
+- **Differential expression** — DESeq2 negative binomial GLM comparing HC vs. WT; output includes adjusted p-values, log2 fold changes, and full visualization suite
+
+**Key Results**
+
+- 123 ROIs analyzed; multiple statistically significant DEGs identified (padj < 0.05)
+- Majority of significant ROIs were downregulated in WT samples
+- Heatmaps showed clear hierarchical clustering separation between HC and WT groups
+
+| ROI | log2 Fold Change | padj |
+|---|---|---|
+| ROI_1239 | -8.89 | 9.6e-20 |
+| ROI_21503 | -7.06 | 1.1e-20 |
+| ROI_32505 | -8.24 | 2.6e-05 |
+| ROI_63603 | -2.59 | 4.1e-07 |
+
+**Visualizations**
+
+- Volcano plots
+- MA plots
+- Z-score normalized heatmaps of top DEGs
+- Sample distance heatmaps
+
+**Tools & Technologies**
+
+- R, Python, Bash
+- DESeq2, featureCounts, samtools, bedtools, ggplot2, pheatmap
